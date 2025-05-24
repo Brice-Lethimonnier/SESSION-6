@@ -15,7 +15,7 @@ db.serialize(() => {
 app.get('/user', (req, res) => {
   const username = req.query.username;
   const sql = `SELECT * FROM users WHERE username = '${username}'`; // ❌ N
-  db.all(sql, [], (err, rows)  {
+  db.all(sql, [], (err, rows) => {
     if (err) return res.status(500).send('Internal error');
     res.json(rows);
   });

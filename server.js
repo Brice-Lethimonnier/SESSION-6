@@ -8,8 +8,8 @@ app.use(express.json());
 // Initialisation SQLite in-memory 
 const db = new sqlite3.Database(':memory:');
 db.serialize(() ⇒ {
-  db.run("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(50),password VARCHAR(50));")
-  db.run("INSERT INTO users (username, password) VALUES ('admin', 'supersecret');")
+  db.run("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(50),password VARCHAR(50));");
+  db.run("INSERT INTO users (username, password) VALUES ('admin', 'supersecret');");
 });
 // Injection SQL via paramètre GET
 app.get('/user', (req, res) ⇒ {

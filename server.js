@@ -7,12 +7,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Initialisation SQLite in-memory 
 const db = new sqlite3.Database(':memory:');
-db.serialize(()  {
+db.serialize(() => {
   db.run("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(50),password VARCHAR(50));");
   db.run("INSERT INTO users (username, password) VALUES ('admin', 'supersecret');");
 });
 // Injection SQL via paramètre GET
-app.get('/user', (req, res)  {
+app.get('/user', (req, res) => {
   const username = req.query.username;
   const sql = `SELECT * FROM users WHERE username = '${username}'`; // ❌ N
   db.all(sql, [], (err, rows)  {
@@ -21,7 +21,7 @@ app.get('/user', (req, res)  {
   });
 });
 // Path traversal via paramètre GET
-app.get('/readfile', (req, res) ⇒ {
+app.get('/readfile', (req, res) => {
   const file = req.query.file;
   const filePath = path.join(__dirname, 'files', file); // ❌ Pas de vérification Session 6 6  
   fs.readFile(filePath, 'utf8', (err, data)  {
@@ -32,6 +32,6 @@ app.get('/readfile', (req, res) ⇒ {
 
 // Sert le frontend 
 app.use(express.static('public'));
-app.listen(port, ()  {
+app.listen(port, () => {
   console.log(`Vulnerable app listening at http://localhost:${port}`);
 });

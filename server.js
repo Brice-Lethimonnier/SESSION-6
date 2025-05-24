@@ -24,7 +24,7 @@ app.get('/user', (req, res) => {
 app.get('/readfile', (req, res) => {
   const file = req.query.file;
   const filePath = path.join(__dirname, 'files', file); // ❌ Pas de vérification Session 6 6  
-  fs.readFile(filePath, 'utf8', (err, data)  {
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) return res.status(500).send('File not found or error');
     res.send(data);
   });

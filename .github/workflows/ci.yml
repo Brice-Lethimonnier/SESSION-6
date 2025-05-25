@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   call-workflow:
-    uses: octo-org/example-repo/.github/workflows/reusable-workflow.yml@main
+    uses: Brice-Lethimonnier/SESSION_6/.github/workflows/semgrep.yml
     with:
       config-path: .github/labeler.yml
     secrets:

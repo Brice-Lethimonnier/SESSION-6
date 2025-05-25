@@ -31,17 +31,14 @@ on:
         default: 'write'
         required: false
         type: string
-      -codeql:
+      _codeql:
         default: true
         required: false
         type: boolean
         
-
-
-
-  # Scan mainline branches and report all findings:
-push:
-  branches: ["main"]
+# Scan mainline branches and report all findings:
+  push:
+    branches: ["main"]
 
       
 permissions:

@@ -7,4 +7,8 @@ jobs:
   call-workflow:
     uses: Brice-Lethimonnier/SESSION-6/.github/workflows/semgrep.yml@main
     with:
-      config-path: .github/workflows/configCI.yml
+      repertoire : '.'
+      vuln_bloque : false
+      semgrep : true
+      codeql : true
+      

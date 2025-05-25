@@ -42,10 +42,10 @@ on:
 
       
 permissions:
-    contents : ${{inputs._contents}}
-    actions: ${{inputs._actions}}
-    id-token: ${{inputs._id-token}}
-    security-events: ${{inputs._sec-events}}
+  contents: ${{inputs._contents}}
+  actions: ${{inputs._actions}}
+  id-token: ${{inputs._id-token}}
+  security-events: ${{inputs._sec-events}}
 
 
 jobs:

@@ -9,6 +9,10 @@ on:
       commit:
         required: true
         type: string
+      is-bloking:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   semgrep:

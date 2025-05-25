@@ -11,7 +11,7 @@ on:
         default: false
         required: false
         type: boolean
-      semgrep:
+      _semgrep:
         default: true
         required: false
         type: boolean
@@ -34,9 +34,9 @@ on:
       
 permissions:
   contents : inputs._contents
-  actions: -actions
-  id-token: _id-token
-  security-events: _sec-events
+  actions: inputs._actions
+  id-token: inputs._id-token
+  security-events: inputs._sec-events
 
  # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}

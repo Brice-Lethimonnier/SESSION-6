@@ -1,6 +1,13 @@
 # Nom Action Github
 name: Semgrep.yml
 
+permissions:
+  contents : read
+  actions: read
+  id-token: write
+  security-events: write
+  
+  
 on:
   # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}

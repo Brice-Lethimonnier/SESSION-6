@@ -1,19 +1,44 @@
 # Nom Action Github
 name: Semgrep.yml
 on:
-  workflow-call:
-  input:
-  
-  
+  workflow_call:
+    inputs:
+      repertoire:
+        default: '.'
+        required : false
+        type: string
+      vuln_bloque:
+        default: false
+        required: false
+        type: boolean
+      semgrep:
+        default: true
+        required: false
+        type: boolean
+      _contents:
+        default: 'read'
+        required: false
+        type: string
+      _actions:
+        default: 'read'
+        required: false
+        type: string
+      _id-token:
+        default: 'read'
+        required: false
+        type: string
+      _sec-events:
+        default: 'write'
+        required: false
+        type: string
+      
 permissions:
-  contents : read
-  actions: read
-  id-token: write
-  security-events: write
-  
-  
-on:
-  # Scan changed files in PRs (diff-aware scanning):
+  contents : inputs._contents
+  actions: -actions
+  id-token: _id-token
+  security-events: _sec-events
+
+ # Scan changed files in PRs (diff-aware scanning):
   pull_request: {}
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}

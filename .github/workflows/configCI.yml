@@ -1,4 +1,3 @@
-name: config-file
-  vars:
-    repertoire : '.'
-    vul_bloque : false
+vars:
+  repertoire : '.'
+  vul_bloque : false

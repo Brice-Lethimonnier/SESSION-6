@@ -1,1 +1,24 @@
+name: Semgrep Analysis
 
+on:
+  workflow_call:
+    inputs:
+      semgrep_config:
+        required: true
+        type: string
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Semgrep
+        run: pip install semgrep
+      - name: Run Semgrep
+        run: semgrep --config ${{ inputs.semgrep_config }} --json > semgrep-results.json
+      - name: Upload Semgrep results
+        uses: actions/upload-artifact@v3
+        with:
+          name: semgrep-results
+          path: semgrep-results.json

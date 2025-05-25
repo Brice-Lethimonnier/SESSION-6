@@ -7,8 +7,11 @@ jobs:
   call-workflow:
     uses: Brice-Lethimonnier/SESSION-6/.github/workflows/semgrep.yml@main
     with:
-      repertoire : '.'
-      vuln_bloque : false
-      semgrep : true
-      codeql : true
+      repertoire: '.'
+      vuln_bloque: false
+      semgrep: true
+      codeql: true
+        
+        
+      
       

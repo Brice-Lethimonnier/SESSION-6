@@ -8,5 +8,3 @@ jobs:
     uses: Brice-Lethimonnier/SESSION_6/.github/workflows/semgrep.yml
     with:
       config-path: .github/labeler.yml
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}

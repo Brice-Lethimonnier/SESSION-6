@@ -11,6 +11,11 @@ jobs:
       vuln_bloque: false
       semgrep: true
       codeql: true
+      _contents: 'read'
+      _actions: 'read'
+      _id-token: 'write'
+      _sec-events: 'write'
+      
         
         
       

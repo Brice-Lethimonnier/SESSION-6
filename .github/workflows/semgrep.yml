@@ -1,6 +1,10 @@
 # Nom Action Github
 name: Semgrep.yml
-
+on:
+  workflow-call:
+  input:
+  
+  
 permissions:
   contents : read
   actions: read

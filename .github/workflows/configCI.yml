@@ -1,5 +1,4 @@
 name: config-file
-on:
-  input:
+  vars:
     repertoire : '.'
     vul_bloque : false

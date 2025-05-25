@@ -7,4 +7,4 @@ jobs:
   call-workflow:
     uses: Brice-Lethimonnier/SESSION-6/.github/workflows/semgrep.yml@main
     with:
-      config-path: .github/workflows/config.yml
+      config-path: .github/workflows/configCI.yml

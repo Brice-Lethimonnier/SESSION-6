@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   call-workflow:
-    uses: Brice-Lethimonnier/SESSION-6/.github/workflows/semgrep.yml@main
+    uses: ./.github/workflows/semgrep.yml
     with:
       repertoire: '.'
       vuln_bloque: false

@@ -16,7 +16,7 @@ jobs:
     with:
       repertoire: '.'
       vuln_bloque: false
-      semgrep: true
+      _semgrep: true
       codeql: true
       _contents: 'read'
       _actions: 'read'

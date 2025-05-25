@@ -1,4 +1,4 @@
-name: Call a reusable workflow
+name: CI fichier appel reusable-file
 on:
   pull_request:
     branches:

@@ -74,7 +74,7 @@ jobs:
       - name: Installation Semgrep
         run: |
           python -m pip install --upgrade pip
-          pip intall semgrep
+          pip install semgrep
           semgrep --version
 
       - name: run Semgrep 

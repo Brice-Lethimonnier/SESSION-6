@@ -1,8 +1,15 @@
 name: CI fichier appel reusable-file
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches:
-      - main
+
+permissions:
+  contents: read
+  actions: read
+  id-token: write
+  security-events: write
+  
 jobs:
   call-workflow:
     uses: ./.github/workflows/semgrep.yml

@@ -40,10 +40,10 @@ push:
 
       
 permissions:
-    contents : inputs._contents
-    actions: inputs._actions
-    id-token: inputs._id-token
-    security-events: inputs._sec-events
+    contents : ${{inputs._contents}}
+    actions: ${{inputs._actions}}
+    id-token: ${{inputs._id-token}}
+    security-events: ${{inputs._sec-events}}
 
 
 jobs:
@@ -54,10 +54,10 @@ jobs:
     runs-on: [self-hosted]
     permissions:
       # required for all workflows
-      security-events: inptus._sec-events
+      security-events: ${{inputs._sec-events}}
       # only required for workflows in private repositories
-      actions: inputs._actions
-      contents: inputs._contents
+      actions: ${{inputs._actions}}
+      contents: ${{inputs._contents}}
 
     steps:
       # Fetch project source with GitHub Actions Checkout.
@@ -76,7 +76,7 @@ jobs:
           semgrep --version
 
       - name: run Semgrep 
-        run : semgrep scan -q --sarif --config auto ./vulnerable-source-code > semgrep-results.sarif
+        run : semgrep scan -q --sarif --config auto ${{inputs.repertoire}}> semgrep-results.sarif
 
       - name:  mise a jour du fichier semgrep-results
         uses: github/codeql-action/upload-sarif@v3

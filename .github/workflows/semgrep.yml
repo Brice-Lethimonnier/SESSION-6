@@ -33,25 +33,25 @@ on:
         type: string
       
 permissions:
-  contents : inputs._contents
-  actions: inputs._actions
-  id-token: inputs._id-token
-  security-events: inputs._sec-events
+    contents : inputs._contents
+    actions: inputs._actions
+    id-token: inputs._id-token
+    security-events: inputs._sec-events
 
  # Scan changed files in PRs (diff-aware scanning):
-  pull_request: {}
+pull_request: {}
   # Scan on-demand through GitHub Actions interface:
-  workflow_dispatch: {}
+workflow_dispatch: {}
   # Scan mainline branches and report all findings:
-  push:
-    branches: ["main"]
+push:
+  branches: ["main"]
 
 jobs:
   semgrep:
     # User definable name of this GitHub Actions job.
     name: semgrep/ci
     # If you are self-hosting, change the following `runs-on` value:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     container:
       # A Docker image with Semgrep installed. Do not change this.
       image: returntocorp/semgrep
@@ -59,10 +59,10 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     permissions:
       # required for all workflows
-      security-events: write
+      security-events: inptus._sec-events
       # only required for workflows in private repositories
-      actions: read
-      contents: read
+      actions: inputs._actions
+      contents: inputs._contents
 
     steps:
       # Fetch project source with GitHub Actions Checkout.
